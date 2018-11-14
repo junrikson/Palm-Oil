@@ -60,6 +60,7 @@ namespace Payment
                     string query = "UPDATE payment SET " +
                                "code = @code, " +
                                "date = @date, " +
+                               "paymentType = @paymentType, " +
                                "total = (SELECT SUM(ammount) FROM paymentDetails WHERE paymentID = @ID), " +
                                "note = @note, " +
                                "updated = getdate(), " +
@@ -72,6 +73,7 @@ namespace Payment
                         {
                             cmd.Parameters.Add("@code", SqlDbType.VarChar).Value = txtCode.Text;
                             cmd.Parameters.Add("@date", SqlDbType.Date).Value = dtpDate.Value;
+                            cmd.Parameters.Add("@paymentType", SqlDbType.VarChar).Value = cmbPaymentType.Text;
                             cmd.Parameters.Add("@note", SqlDbType.VarChar).Value = txtNote.Text;
                             cmd.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
                             cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = this.id;
@@ -117,6 +119,7 @@ namespace Payment
             dtpDate.Value = DateTime.Today;
             txtNote.Text = "";
             txtTotal.Value = 0;
+            cmbPaymentType.SelectedItem = "CASH";
         }
 
         private Boolean isValid()

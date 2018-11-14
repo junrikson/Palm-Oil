@@ -39,7 +39,7 @@ namespace Payment
             {
                 using (SqlConnection con = new SqlConnection(connString))
                 {
-                    using (SqlCommand cmd = new SqlCommand("SELECT TOP 1 code, date, total, note FROM payment WHERE id = @id", con))
+                    using (SqlCommand cmd = new SqlCommand("SELECT TOP 1 code, date, paymentType, total, note FROM payment WHERE id = @id", con))
                     {
                         cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
                         con.Open();
@@ -49,6 +49,7 @@ namespace Payment
                             {
                                 txtCode.Text = code = reader["code"].ToString();
                                 dtpDate.Value = DateTime.Parse(reader["date"].ToString());
+                                cmbPaymentType.SelectedItem = reader["paymentType"].ToString();
                                 int.TryParse(reader["total"].ToString(), out int total);
                                 txtTotal.Value = total;
                                 txtNote.Text = reader["note"].ToString();
@@ -74,7 +75,7 @@ namespace Payment
             {
                 using (SqlConnection con = new SqlConnection(connString))
                 {
-                    using (SqlCommand cmd = new SqlCommand("SELECT TOP 1 id, code, date, total, note FROM payment WHERE id < @id ORDER BY id DESC", con))
+                    using (SqlCommand cmd = new SqlCommand("SELECT TOP 1 id, code, date, paymentType, total, note FROM payment WHERE id < @id ORDER BY id DESC", con))
                     {
                         cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
                         con.Open();
@@ -85,6 +86,7 @@ namespace Payment
                                 id = reader["id"].ToString();
                                 txtCode.Text = code = reader["code"].ToString();
                                 dtpDate.Value = DateTime.Parse(reader["date"].ToString());
+                                cmbPaymentType.SelectedItem = reader["paymentType"].ToString();
                                 int.TryParse(reader["total"].ToString(), out int total);
                                 txtTotal.Value = total;
                                 txtNote.Text = reader["note"].ToString();
@@ -111,7 +113,7 @@ namespace Payment
             {
                 using (SqlConnection con = new SqlConnection(connString))
                 {
-                    using (SqlCommand cmd = new SqlCommand("SELECT TOP 1 id, code, date, total, note FROM payment WHERE id > @id ORDER BY id ASC", con))
+                    using (SqlCommand cmd = new SqlCommand("SELECT TOP 1 id, code, date, paymentType, total, note FROM payment WHERE id > @id ORDER BY id ASC", con))
                     {
                         cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
                         con.Open();
@@ -122,6 +124,7 @@ namespace Payment
                                 this.id = reader["id"].ToString();
                                 txtCode.Text = code = reader["code"].ToString();
                                 dtpDate.Value = DateTime.Parse(reader["date"].ToString());
+                                cmbPaymentType.SelectedItem = reader["paymentType"].ToString();
                                 int.TryParse(reader["total"].ToString(), out int total);
                                 txtTotal.Value = total;
                                 txtNote.Text = reader["note"].ToString();

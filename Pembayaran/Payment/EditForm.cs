@@ -53,6 +53,7 @@ namespace Payment
                     string query = "UPDATE payment SET " +
                                "code = @code, " +
                                "date = @date, " +
+                               "paymentType = @paymentType, " +
                                "total = (SELECT SUM(ammount) FROM paymentDetails WHERE paymentID = @ID), " +
                                "note = @note, " +
                                "updated = getdate(), " +
@@ -65,6 +66,7 @@ namespace Payment
                         {
                             cmd.Parameters.Add("@code", SqlDbType.VarChar).Value = txtCode.Text;
                             cmd.Parameters.Add("@date", SqlDbType.Date).Value = dtpDate.Value;
+                            cmd.Parameters.Add("@paymentType", SqlDbType.VarChar).Value = cmbPaymentType.Text;
                             cmd.Parameters.Add("@note", SqlDbType.VarChar).Value = txtNote.Text;
                             cmd.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
                             cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = this.id;
@@ -129,7 +131,7 @@ namespace Payment
             {
                 using (SqlConnection con = new SqlConnection(connString))
                 {
-                    using (SqlCommand cmd = new SqlCommand("SELECT TOP 1 code, date, total, note FROM payment WHERE id = @id", con))
+                    using (SqlCommand cmd = new SqlCommand("SELECT TOP 1 code, date, paymentType, total, note FROM payment WHERE id = @id", con))
                     {
                         cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
                         con.Open();
@@ -139,6 +141,7 @@ namespace Payment
                             {
                                 txtCode.Text = code = reader["code"].ToString();
                                 dtpDate.Value = DateTime.Parse(reader["date"].ToString());
+                                cmbPaymentType.SelectedItem = reader["paymentType"].ToString();
                                 int.TryParse(reader["total"].ToString(), out int total);
                                 txtTotal.Value = total;
                                 txtNote.Text = reader["note"].ToString();

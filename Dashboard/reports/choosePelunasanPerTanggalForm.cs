@@ -38,7 +38,7 @@ namespace Dashboard
         {
             try
             {
-                LoadReport(reportName, dtpBegin.Value, dtpEnd.Value.AddHours(23).AddMinutes(59).AddSeconds(59).AddMilliseconds(999));
+                LoadReport(reportName, dtpBegin.Value.Date, dtpEnd.Value.Date.AddHours(23).AddMinutes(59).AddSeconds(58));
             }
             catch (Exception ex)
             {
