@@ -53,15 +53,15 @@ namespace Payment
             this.label3 = new System.Windows.Forms.Label();
             this.txtCode = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cmbPaymentType = new System.Windows.Forms.ComboBox();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbPaymentType = new System.Windows.Forms.ComboBox();
             this.pnlCommand.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -320,6 +320,15 @@ namespace Payment
             this.panel2.Size = new System.Drawing.Size(94, 73);
             this.panel2.TabIndex = 40;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 13);
+            this.label2.TabIndex = 42;
+            this.label2.Text = "* Pembayaran :";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -337,6 +346,20 @@ namespace Payment
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(194, 73);
             this.panel3.TabIndex = 41;
+            // 
+            // cmbPaymentType
+            // 
+            this.cmbPaymentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPaymentType.Enabled = false;
+            this.cmbPaymentType.FormattingEnabled = true;
+            this.cmbPaymentType.Items.AddRange(new object[] {
+            "CASH",
+            "TRANSFER",
+            "SETOR TUNAI"});
+            this.cmbPaymentType.Location = new System.Drawing.Point(3, 30);
+            this.cmbPaymentType.Name = "cmbPaymentType";
+            this.cmbPaymentType.Size = new System.Drawing.Size(182, 21);
+            this.cmbPaymentType.TabIndex = 2;
             // 
             // dtpDate
             // 
@@ -395,27 +418,6 @@ namespace Payment
             this.txtTotal.Size = new System.Drawing.Size(185, 20);
             this.txtTotal.TabIndex = 2;
             this.txtTotal.ThousandsSeparator = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 33);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 13);
-            this.label2.TabIndex = 42;
-            this.label2.Text = "* Pembayaran :";
-            // 
-            // cmbPaymentType
-            // 
-            this.cmbPaymentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPaymentType.FormattingEnabled = true;
-            this.cmbPaymentType.Items.AddRange(new object[] {
-            "CASH",
-            "TRANSFER"});
-            this.cmbPaymentType.Location = new System.Drawing.Point(3, 30);
-            this.cmbPaymentType.Name = "cmbPaymentType";
-            this.cmbPaymentType.Size = new System.Drawing.Size(182, 21);
-            this.cmbPaymentType.TabIndex = 2;
             // 
             // ViewForm
             // 

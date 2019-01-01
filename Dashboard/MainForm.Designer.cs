@@ -173,7 +173,7 @@ namespace Dashboard
             this.dockingManager.SetEnableDocking(this.pnlTools, true);
             ccbpnlTools.MergeWith(this.dockingManager.CaptionButtons, false);
             this.dockingManager.SetCustomCaptionButtons(this.pnlTools, ccbpnlTools);
-            this.dockingManager.SetDockLabel(this.panel2, "Invoice Pembelian Yang Belum Dibayar");
+            this.dockingManager.SetDockLabel(this.panel2, "Purchase Order Yang Belum Dibayar");
             this.dockingManager.SetEnableDocking(this.panel2, true);
             ccbpanel2.MergeWith(this.dockingManager.CaptionButtons, false);
             this.dockingManager.SetCustomCaptionButtons(this.panel2, ccbpanel2);
@@ -547,7 +547,7 @@ namespace Dashboard
             // 
             this.invoicePembelianToolStripMenuItem.Name = "invoicePembelianToolStripMenuItem";
             this.invoicePembelianToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.invoicePembelianToolStripMenuItem.Text = "Invoice Pembelian";
+            this.invoicePembelianToolStripMenuItem.Text = "Purchase Order";
             this.invoicePembelianToolStripMenuItem.Click += new System.EventHandler(this.invoicePembelianToolStripMenuItem_Click);
             // 
             // pembayaranToolStripMenuItem
@@ -817,7 +817,7 @@ namespace Dashboard
             this.btnPurchase.Style.Image = ((System.Drawing.Image)(resources.GetObject("btnPurchase.Style.Image")));
             this.btnPurchase.Style.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(199)))), ((int)(((byte)(213)))));
             this.btnPurchase.TabIndex = 43;
-            this.btnPurchase.Text = "Invoice Pembelian";
+            this.btnPurchase.Text = "Purchase Order";
             this.btnPurchase.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnPurchase.TextMargin = new System.Windows.Forms.Padding(0);
             this.btnPurchase.UseVisualStyleBackColor = false;
