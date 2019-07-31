@@ -43,6 +43,7 @@ namespace Sales
                             "SET code = @code, " +
                             "receiptCode = @receiptCode, " +
                             "DOCode = @DOCode, " +
+                            "millCode = @millCode, " +
                             "arrived = @arrived, " +
                             "finished = @finished, " +
                             "netto = @netto, " +
@@ -55,6 +56,7 @@ namespace Sales
                             cmd.Parameters.Add("@code", SqlDbType.VarChar).Value = txtCode.Text;
                             cmd.Parameters.Add("@receiptCode", SqlDbType.VarChar).Value = txtReceiptCode.Text;
                             cmd.Parameters.Add("@DOCode", SqlDbType.VarChar).Value = txtDOCode.Text;
+                            cmd.Parameters.Add("@millCode", SqlDbType.VarChar).Value = txtMillCode.Text;
                             cmd.Parameters.Add("@arrived", SqlDbType.DateTime).Value = dtpArrived.Value;
                             cmd.Parameters.Add("@finished", SqlDbType.DateTime).Value = dtpFinished.Value;
                             cmd.Parameters.Add("@netto", SqlDbType.Int).Value = txtNetto.Value;
@@ -86,17 +88,17 @@ namespace Sales
                 MessageBox.Show("Nomor Ticket harus diisi!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtCode.Select();
             }
-            else if (String.IsNullOrEmpty(txtDOCode.Text))
-            {
-                isValidated = false;
-                MessageBox.Show("Nomor DO harus diisi!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtDOCode.Select();
-            }
             else if (String.IsNullOrEmpty(txtReceiptCode.Text))
             {
                 isValidated = false;
                 MessageBox.Show("Nomor Tanda Terima harus diisi!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtReceiptCode.Select();
+            }
+            else if (String.IsNullOrEmpty(txtMillCode.Text))
+            {
+                isValidated = false;
+                MessageBox.Show("Pabrik harus diisi!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMillCode.Select();
             }
             else if (dtpArrived.Value == null)
             {
@@ -174,7 +176,7 @@ namespace Sales
             {
                 using (SqlConnection con = new SqlConnection(connString))
                 {
-                    using (SqlCommand cmd = new SqlCommand("SELECT TOP 1 code, receiptCode, DOCode, arrived, finished, netto, price, note FROM sales WHERE id = @id", con))
+                    using (SqlCommand cmd = new SqlCommand("SELECT TOP 1 code, receiptCode, DOCode, millCode, arrived, finished, netto, price, note FROM sales WHERE id = @id", con))
                     {
                         cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
                         con.Open();
@@ -185,6 +187,7 @@ namespace Sales
                                 txtCode.Text = reader["code"].ToString();
                                 txtReceiptCode.Text = reader["receiptCode"].ToString();
                                 txtDOCode.Text = reader["DOCode"].ToString();
+                                txtMillCode.Text = reader["millCode"].ToString();
                                 dtpArrived.Value = DateTime.Parse(reader["arrived"].ToString());
                                 dtpFinished.Value = DateTime.Parse(reader["finished"].ToString());
                                 txtNetto.Value = int.Parse(reader["netto"].ToString());
@@ -269,6 +272,17 @@ namespace Sales
                     MessageBox.Show(ex.Message.ToString());
                 }
             }
+        }
+
+        private void btnMillCode_Click(object sender, EventArgs e)
+        {
+            Form dialogForm = new dialogMillForm(username, "EditForm");
+            dialogForm.ShowDialog(this);
+        }
+
+        public void btnMillClick(string millCode)
+        {
+            txtMillCode.Text = millCode;
         }
 
         private void refreshReceipt()

@@ -76,10 +76,15 @@ namespace Dashboard
                 case "A0000":
                     masterToolStripMenuItem.Visible = false;
                     break;
-                //A0002 Master Relasi
+                //A0001 Master Relasi
                 case "A0001":
                     masterRelasiToolStripMenuItem.Visible = false;
                     btnMasterRelation.Enabled = false;
+                    break;
+                //A0002 Master Relasi
+                case "A0002":
+                    masterMillToolStripMenuItem.Visible = false;
+                    btnMasterMill.Enabled = false;
                     break;
                 //B0000 Transaksi
                 case "B0000":
@@ -186,6 +191,20 @@ namespace Dashboard
             {
                 Process exe = new Process();
                 exe.StartInfo.FileName = "MasterRelation.exe";
+                exe.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+        private void btnMasterMill_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process exe = new Process();
+                exe.StartInfo.FileName = "MasterMill.exe";
                 exe.Start();
             }
             catch (Exception ex)
@@ -308,10 +327,14 @@ namespace Dashboard
 
         private void masterRelasiToolStripMenuItem_Click(object sender, EventArgs e)
         {
+        }
+
+        private void masterMillToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             try
             {
                 Process exe = new Process();
-                exe.StartInfo.FileName = "MasterRelation.exe";
+                exe.StartInfo.FileName = "MasterMill.exe";
                 exe.Start();
             }
             catch (Exception ex)

@@ -72,6 +72,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dialogMillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dialogMillForm.designer.cs">
+      <DependentUpon>dialogMillForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="dialogReceiptForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     <Compile Include="LoadingForm.Designer.cs">
       <DependentUpon>LoadingForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="dialogMillForm.resx">
+      <DependentUpon>dialogMillForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="dialogReceiptForm.resx">
       <DependentUpon>dialogReceiptForm.cs</DependentUpon>
     </EmbeddedResource>

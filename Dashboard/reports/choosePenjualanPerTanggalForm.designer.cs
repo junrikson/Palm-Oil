@@ -164,7 +164,6 @@ namespace Dashboard
             this.crystalReportViewer.Name = "crystalReportViewer";
             this.crystalReportViewer.ShowCloseButton = false;
             this.crystalReportViewer.ShowCopyButton = false;
-            this.crystalReportViewer.ShowGroupTreeButton = false;
             this.crystalReportViewer.ShowParameterPanelButton = false;
             this.crystalReportViewer.ShowRefreshButton = false;
             this.crystalReportViewer.Size = new System.Drawing.Size(873, 220);

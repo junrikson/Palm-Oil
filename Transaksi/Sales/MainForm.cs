@@ -208,6 +208,7 @@ namespace Sales
             string code = "";
             string name = "";
             string DOCode = "";
+            string millName = "";
             string receiptCode = "";
             string relationName = "";
             string note = "";
@@ -219,6 +220,10 @@ namespace Sales
             else if (cmbFilterColumn.SelectedItem.ToString() == "No. DO")
             {
                 DOCode = txtFilterValue.Text;
+            }
+            else if (cmbFilterColumn.SelectedItem.ToString() == "Pabrik")
+            {
+                millName = txtFilterValue.Text;
             }
             else if (cmbFilterColumn.SelectedItem.ToString() == "No. Tanda Terima")
             {
@@ -239,12 +244,13 @@ namespace Sales
 
         #region Grid
 
-        public void Grid_Load(string code = "", string DOCode = "", string receiptCode = "", string relationName = "", string note = "")
+        public void Grid_Load(string code = "", string DOCode = "", string millName = "", string receiptCode = "", string relationName = "", string note = "")
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("ID", typeof(int));
             dt.Columns.Add("No. Ticket", typeof(String));
             dt.Columns.Add("No. DO", typeof(String));
+            dt.Columns.Add("Pabrik", typeof(String));
             dt.Columns.Add("No. Tanda Terima", typeof(String));
             dt.Columns.Add("Mitra", typeof(String));
             dt.Columns.Add("Waktu Tiba", typeof(DateTime));
@@ -259,11 +265,13 @@ namespace Sales
 
             try
             {
-                String sqlString = "SELECT a.id, a.code, a.DOCode, b.code AS receiptCode, c.name as relationName, a.arrived, a.finished, a.netto, a.price, a.total, a.note, a.updated, a.created, a.username " +
+                String sqlString = "SELECT a.id, a.code, a.DOCode, d.name AS millName, b.code AS receiptCode, c.name as relationName, a.arrived, a.finished, a.netto, a.price, a.total, a.note, a.updated, a.created, a.username " +
                     "FROM sales a INNER JOIN receipt b ON a.receiptCode = b.code " +
-                    "INNER JOIN masterRelation c ON b.relationCode = c.code WHERE " +
+                    "INNER JOIN masterRelation c ON b.relationCode = c.code " +
+                    "INNER JOIN masterMill d ON a.millCode = d.code WHERE " +
                     "(a.code like @code OR a.code IS NULL) " +
                     "AND (a.DOCode like @DOCode OR a.DOCode IS NULL) " +
+                    "AND (d.name like @millName OR d.name IS NULL) " +
                     "AND (b.code like @receiptCode OR b.code IS NULL) " +
                     "AND (c.name like @relationName OR c.name IS NULL) " +
                     "AND (a.note like @note OR a.note IS NULL) " +
@@ -274,6 +282,7 @@ namespace Sales
                 {
                     da.SelectCommand.Parameters.Add("@code", SqlDbType.VarChar).Value = code + '%';
                     da.SelectCommand.Parameters.Add("@DOCode", SqlDbType.VarChar).Value = DOCode + '%';
+                    da.SelectCommand.Parameters.Add("@millName", SqlDbType.VarChar).Value = millName + '%';
                     da.SelectCommand.Parameters.Add("@receiptCode", SqlDbType.VarChar).Value = receiptCode + '%';
                     da.SelectCommand.Parameters.Add("@relationName", SqlDbType.VarChar).Value = relationName + '%';
                     da.SelectCommand.Parameters.Add("@note", SqlDbType.VarChar).Value = note + '%';
@@ -295,6 +304,7 @@ namespace Sales
                             dr["ID"] = tDR["id"];
                             dr["No. Ticket"] = tDR["code"];
                             dr["No. DO"] = tDR["DOCode"];
+                            dr["Pabrik"] = tDR["millName"];
                             dr["No. Tanda Terima"] = tDR["receiptCode"];
                             dr["Mitra"] = tDR["relationName"];
                             dr["Waktu Tiba"] = tDR["arrived"];
@@ -325,6 +335,7 @@ namespace Sales
         {
             cmbFilterColumn.Items.Add("No. Ticket");
             cmbFilterColumn.Items.Add("No. DO");
+            cmbFilterColumn.Items.Add("Pabrik");
             cmbFilterColumn.Items.Add("No. Tanda Terima");
             cmbFilterColumn.Items.Add("Mitra");
             cmbFilterColumn.Items.Add("Keterangan");

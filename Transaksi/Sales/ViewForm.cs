@@ -37,7 +37,7 @@ namespace Sales
             {
                 using (SqlConnection con = new SqlConnection(connString))
                 {
-                    using (SqlCommand cmd = new SqlCommand("SELECT TOP 1 code, receiptCode, DOCode, arrived, finished, netto, price, note FROM sales WHERE id = @id", con))
+                    using (SqlCommand cmd = new SqlCommand("SELECT TOP 1 code, receiptCode, DOCode, millCode, arrived, finished, netto, price, note FROM sales WHERE id = @id", con))
                     {
                         cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
                         con.Open();
@@ -48,6 +48,7 @@ namespace Sales
                                 txtCode.Text = reader["code"].ToString();
                                 txtReceiptCode.Text = reader["receiptCode"].ToString();
                                 txtDOCode.Text = reader["DOCode"].ToString();
+                                txtMillCode.Text = reader["millCode"].ToString();
                                 dtpArrived.Value = DateTime.Parse(reader["arrived"].ToString());
                                 dtpFinished.Value = DateTime.Parse(reader["finished"].ToString());
                                 txtNetto.Value = int.Parse(reader["netto"].ToString());
@@ -77,7 +78,7 @@ namespace Sales
             {
                 using (SqlConnection con = new SqlConnection(connString))
                 {
-                    using (SqlCommand cmd = new SqlCommand("SELECT TOP 1 id, code, receiptCode, DOCode, arrived, finished, netto, price, note FROM sales WHERE id < @id ORDER BY id DESC", con))
+                    using (SqlCommand cmd = new SqlCommand("SELECT TOP 1 id, code, receiptCode, DOCode, millCode, arrived, finished, netto, price, note FROM sales WHERE id < @id ORDER BY id DESC", con))
                     {
                         cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
                         con.Open();
@@ -89,6 +90,7 @@ namespace Sales
                                 txtCode.Text = reader["code"].ToString();
                                 txtReceiptCode.Text = reader["receiptCode"].ToString();
                                 txtDOCode.Text = reader["DOCode"].ToString();
+                                txtMillCode.Text = reader["millCode"].ToString();
                                 dtpArrived.Value = DateTime.Parse(reader["arrived"].ToString());
                                 dtpFinished.Value = DateTime.Parse(reader["finished"].ToString());
                                 txtNetto.Value = int.Parse(reader["netto"].ToString());
@@ -118,7 +120,7 @@ namespace Sales
             {
                 using (SqlConnection con = new SqlConnection(connString))
                 {
-                    using (SqlCommand cmd = new SqlCommand("SELECT TOP 1 id, code, receiptCode, DOCode, arrived, finished, netto, price, note FROM sales WHERE id > @id ORDER BY id ASC", con))
+                    using (SqlCommand cmd = new SqlCommand("SELECT TOP 1 id, code, receiptCode, DOCode, millCode, arrived, finished, netto, price, note FROM sales WHERE id > @id ORDER BY id ASC", con))
                     {
                         cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
                         con.Open();
@@ -130,6 +132,7 @@ namespace Sales
                                 txtCode.Text = reader["code"].ToString();
                                 txtReceiptCode.Text = reader["receiptCode"].ToString();
                                 txtDOCode.Text = reader["DOCode"].ToString();
+                                txtMillCode.Text = reader["millCode"].ToString();
                                 dtpArrived.Value = DateTime.Parse(reader["arrived"].ToString());
                                 dtpFinished.Value = DateTime.Parse(reader["finished"].ToString());
                                 txtNetto.Value = int.Parse(reader["netto"].ToString());

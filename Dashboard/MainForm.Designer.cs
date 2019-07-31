@@ -110,6 +110,8 @@ namespace Dashboard
             this.btnRepayment = new Syncfusion.WinForms.Controls.SfButton();
             this.btnChangePassword = new Syncfusion.WinForms.Controls.SfButton();
             this.btnBackupDatabase = new Syncfusion.WinForms.Controls.SfButton();
+            this.masterMillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnMasterMill = new Syncfusion.WinForms.Controls.SfButton();
             ((System.ComponentModel.ISupportInitialize)(this.dockingManager)).BeginInit();
             this.pnlFavourite.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeFavourite)).BeginInit();
@@ -173,7 +175,7 @@ namespace Dashboard
             this.dockingManager.SetEnableDocking(this.pnlTools, true);
             ccbpnlTools.MergeWith(this.dockingManager.CaptionButtons, false);
             this.dockingManager.SetCustomCaptionButtons(this.pnlTools, ccbpnlTools);
-            this.dockingManager.SetDockLabel(this.panel2, "Purchase Order Yang Belum Dibayar");
+            this.dockingManager.SetDockLabel(this.panel2, "Invoice Pembelian Yang Belum Dibayar");
             this.dockingManager.SetEnableDocking(this.panel2, true);
             ccbpanel2.MergeWith(this.dockingManager.CaptionButtons, false);
             this.dockingManager.SetCustomCaptionButtons(this.panel2, ccbpanel2);
@@ -183,7 +185,7 @@ namespace Dashboard
             this.pnlFavourite.Controls.Add(this.treeFavourite);
             this.pnlFavourite.Location = new System.Drawing.Point(1, 26);
             this.pnlFavourite.Name = "pnlFavourite";
-            this.pnlFavourite.Size = new System.Drawing.Size(215, 336);
+            this.pnlFavourite.Size = new System.Drawing.Size(223, 336);
             this.pnlFavourite.TabIndex = 6;
             // 
             // treeFavourite
@@ -197,7 +199,7 @@ namespace Dashboard
             treeNodeAdvStyleInfo1.ShowOptionButton = false;
             this.treeFavourite.BaseStylePairs.AddRange(new Syncfusion.Windows.Forms.Tools.StyleNamePair[] {
             new Syncfusion.Windows.Forms.Tools.StyleNamePair("Standard", treeNodeAdvStyleInfo1)});
-            this.treeFavourite.BeforeTouchSize = new System.Drawing.Size(215, 336);
+            this.treeFavourite.BeforeTouchSize = new System.Drawing.Size(223, 336);
             this.treeFavourite.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
             this.treeFavourite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.treeFavourite.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -238,7 +240,7 @@ namespace Dashboard
             this.treeFavourite.SelectedNodeForeColor = System.Drawing.SystemColors.HighlightText;
             this.treeFavourite.ShowFocusRect = false;
             this.treeFavourite.ShowLines = false;
-            this.treeFavourite.Size = new System.Drawing.Size(215, 336);
+            this.treeFavourite.Size = new System.Drawing.Size(223, 336);
             this.treeFavourite.Style = Syncfusion.Windows.Forms.Tools.TreeStyle.Metro;
             this.treeFavourite.TabIndex = 4;
             this.treeFavourite.Text = "treeViewAdv1";
@@ -507,7 +509,8 @@ namespace Dashboard
             // masterToolStripMenuItem
             // 
             this.masterToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.masterRelasiToolStripMenuItem});
+            this.masterRelasiToolStripMenuItem,
+            this.masterMillToolStripMenuItem});
             this.masterToolStripMenuItem.Name = "masterToolStripMenuItem";
             this.masterToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.masterToolStripMenuItem.Text = "Master";
@@ -515,7 +518,7 @@ namespace Dashboard
             // masterRelasiToolStripMenuItem
             // 
             this.masterRelasiToolStripMenuItem.Name = "masterRelasiToolStripMenuItem";
-            this.masterRelasiToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.masterRelasiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.masterRelasiToolStripMenuItem.Text = "Master Mitra";
             this.masterRelasiToolStripMenuItem.Click += new System.EventHandler(this.masterRelasiToolStripMenuItem_Click);
             // 
@@ -526,7 +529,7 @@ namespace Dashboard
             this.penjualanKePabrikToolStripMenuItem,
             this.invoicePembelianToolStripMenuItem});
             this.transaksiToolStripMenuItem.Name = "transaksiToolStripMenuItem";
-            this.transaksiToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.transaksiToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.transaksiToolStripMenuItem.Text = "Transaksi";
             // 
             // tandaTerimaToolStripMenuItem
@@ -612,7 +615,7 @@ namespace Dashboard
             this.hapusDataToolStripMenuItem,
             this.gantiPasswordToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
             // 
             // backupDatabaseToolStripMenuItem
@@ -658,35 +661,35 @@ namespace Dashboard
             // penjualanPerTanggalToolStripMenuItem
             // 
             this.penjualanPerTanggalToolStripMenuItem.Name = "penjualanPerTanggalToolStripMenuItem";
-            this.penjualanPerTanggalToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.penjualanPerTanggalToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.penjualanPerTanggalToolStripMenuItem.Text = "Penjualan Per Tanggal";
             this.penjualanPerTanggalToolStripMenuItem.Click += new System.EventHandler(this.penjualanPerTanggalToolStripMenuItem_Click);
             // 
             // pembelianPerTanggalToolStripMenuItem
             // 
             this.pembelianPerTanggalToolStripMenuItem.Name = "pembelianPerTanggalToolStripMenuItem";
-            this.pembelianPerTanggalToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.pembelianPerTanggalToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.pembelianPerTanggalToolStripMenuItem.Text = "Pembelian Per Tanggal";
             this.pembelianPerTanggalToolStripMenuItem.Click += new System.EventHandler(this.pembelianPerTanggalToolStripMenuItem_Click);
             // 
             // pembayaranPerTanggalToolStripMenuItem
             // 
             this.pembayaranPerTanggalToolStripMenuItem.Name = "pembayaranPerTanggalToolStripMenuItem";
-            this.pembayaranPerTanggalToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.pembayaranPerTanggalToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.pembayaranPerTanggalToolStripMenuItem.Text = "Pembayaran Per Tanggal";
             this.pembayaranPerTanggalToolStripMenuItem.Click += new System.EventHandler(this.pembayaranPerTanggalToolStripMenuItem_Click);
             // 
             // pelunasanPerTanggalToolStripMenuItem
             // 
             this.pelunasanPerTanggalToolStripMenuItem.Name = "pelunasanPerTanggalToolStripMenuItem";
-            this.pelunasanPerTanggalToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.pelunasanPerTanggalToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.pelunasanPerTanggalToolStripMenuItem.Text = "Pelunasan Per Tanggal";
             this.pelunasanPerTanggalToolStripMenuItem.Click += new System.EventHandler(this.pelunasanPerTanggalToolStripMenuItem_Click);
             // 
             // keuntunganBrutoToolStripMenuItem
             // 
             this.keuntunganBrutoToolStripMenuItem.Name = "keuntunganBrutoToolStripMenuItem";
-            this.keuntunganBrutoToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.keuntunganBrutoToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.keuntunganBrutoToolStripMenuItem.Text = "Keuntungan (Bruto)";
             this.keuntunganBrutoToolStripMenuItem.Click += new System.EventHandler(this.keuntunganBrutoToolStripMenuItem_Click);
             // 
@@ -703,21 +706,21 @@ namespace Dashboard
             // minimizeToolStripMenuItem
             // 
             this.minimizeToolStripMenuItem.Name = "minimizeToolStripMenuItem";
-            this.minimizeToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.minimizeToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.minimizeToolStripMenuItem.Text = "Minimize";
             this.minimizeToolStripMenuItem.Click += new System.EventHandler(this.minimizeToolStripMenuItem_Click);
             // 
             // maximizeToolStripMenuItem
             // 
             this.maximizeToolStripMenuItem.Name = "maximizeToolStripMenuItem";
-            this.maximizeToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.maximizeToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.maximizeToolStripMenuItem.Text = "Maximize";
             this.maximizeToolStripMenuItem.Click += new System.EventHandler(this.maximizeToolStripMenuItem_Click);
             // 
             // normalToolStripMenuItem
             // 
             this.normalToolStripMenuItem.Name = "normalToolStripMenuItem";
-            this.normalToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.normalToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.normalToolStripMenuItem.Text = "Normal";
             this.normalToolStripMenuItem.Click += new System.EventHandler(this.normalToolStripMenuItem_Click);
             // 
@@ -891,7 +894,7 @@ namespace Dashboard
             this.btnChangePassword.Image = ((System.Drawing.Image)(resources.GetObject("btnChangePassword.Image")));
             this.btnChangePassword.ImageMargin = new System.Windows.Forms.Padding(0, 0, 17, 0);
             this.btnChangePassword.ImageSize = new System.Drawing.Size(65, 65);
-            this.btnChangePassword.Location = new System.Drawing.Point(50, 264);
+            this.btnChangePassword.Location = new System.Drawing.Point(182, 250);
             this.btnChangePassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnChangePassword.Name = "btnChangePassword";
             this.btnChangePassword.Size = new System.Drawing.Size(124, 90);
@@ -920,7 +923,7 @@ namespace Dashboard
             this.btnBackupDatabase.Image = ((System.Drawing.Image)(resources.GetObject("btnBackupDatabase.Image")));
             this.btnBackupDatabase.ImageMargin = new System.Windows.Forms.Padding(0);
             this.btnBackupDatabase.ImageSize = new System.Drawing.Size(65, 65);
-            this.btnBackupDatabase.Location = new System.Drawing.Point(182, 264);
+            this.btnBackupDatabase.Location = new System.Drawing.Point(314, 250);
             this.btnBackupDatabase.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBackupDatabase.Name = "btnBackupDatabase";
             this.btnBackupDatabase.Size = new System.Drawing.Size(124, 90);
@@ -939,6 +942,42 @@ namespace Dashboard
             this.btnBackupDatabase.UseVisualStyleBackColor = false;
             this.btnBackupDatabase.Click += new System.EventHandler(this.btnBackupDatabase_Click);
             // 
+            // masterMillToolStripMenuItem
+            // 
+            this.masterMillToolStripMenuItem.Name = "masterMillToolStripMenuItem";
+            this.masterMillToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.masterMillToolStripMenuItem.Text = "Master Pabrik";
+            this.masterMillToolStripMenuItem.Click += new System.EventHandler(this.masterMillToolStripMenuItem_Click);
+            // 
+            // btnMasterMill
+            // 
+            this.btnMasterMill.AccessibleName = "btnMasterMill";
+            this.btnMasterMill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnMasterMill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnMasterMill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMasterMill.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.btnMasterMill.Image = ((System.Drawing.Image)(resources.GetObject("btnMasterMill.Image")));
+            this.btnMasterMill.ImageMargin = new System.Windows.Forms.Padding(0);
+            this.btnMasterMill.ImageSize = new System.Drawing.Size(65, 65);
+            this.btnMasterMill.Location = new System.Drawing.Point(50, 250);
+            this.btnMasterMill.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnMasterMill.Name = "btnMasterMill";
+            this.btnMasterMill.Size = new System.Drawing.Size(124, 90);
+            this.btnMasterMill.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnMasterMill.Style.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnMasterMill.Style.DisabledForeColor = System.Drawing.Color.Gray;
+            this.btnMasterMill.Style.DisabledImage = ((System.Drawing.Image)(resources.GetObject("sfButton1.Style.DisabledImage")));
+            this.btnMasterMill.Style.FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnMasterMill.Style.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(229)))), ((int)(((byte)(243)))));
+            this.btnMasterMill.Style.Image = ((System.Drawing.Image)(resources.GetObject("sfButton1.Style.Image")));
+            this.btnMasterMill.Style.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(199)))), ((int)(((byte)(213)))));
+            this.btnMasterMill.TabIndex = 77;
+            this.btnMasterMill.Text = "Master Pabrik";
+            this.btnMasterMill.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnMasterMill.TextMargin = new System.Windows.Forms.Padding(0);
+            this.btnMasterMill.UseVisualStyleBackColor = false;
+            this.btnMasterMill.Click += new System.EventHandler(this.btnMasterMill_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -949,6 +988,7 @@ namespace Dashboard
             this.CaptionBarHeight = 35;
             this.CaptionFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.ClientSize = new System.Drawing.Size(894, 494);
+            this.Controls.Add(this.btnMasterMill);
             this.Controls.Add(this.btnMasterRelation);
             this.Controls.Add(this.btnBackupDatabase);
             this.Controls.Add(this.btnChangePassword);
@@ -1041,5 +1081,7 @@ namespace Dashboard
         private System.Windows.Forms.ToolStripMenuItem penjualanPerTanggalToolStripMenuItem;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView gridView2;
+        private System.Windows.Forms.ToolStripMenuItem masterMillToolStripMenuItem;
+        private Syncfusion.WinForms.Controls.SfButton btnMasterMill;
     }
 }
