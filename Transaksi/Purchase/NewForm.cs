@@ -200,18 +200,17 @@ namespace Purchase
             {
                 string query = "INSERT INTO purchase" +
                         "(code, date, bruto, downpayment, bonus, status, updated, created, username) output INSERTED.ID VALUES " +
-                        "(@code + (SELECT RIGHT('000' + CAST((ISNULL((SELECT TOP 1 RIGHT(code,4) " +
+                        "(@code + (SELECT RIGHT('000000000' + CAST((ISNULL((SELECT TOP 1 RIGHT(code,10) " +
                         "   FROM purchase " +
-                        "   WHERE LEFT(RIGHT(code,10),6) = @today " +
-                        "   ORDER BY RIGHT(code,4) DESC),0) + 1) AS VARCHAR(4)),4))," +
+                        "   WHERE LEFT(code,3) = @code " +
+                        "   ORDER BY RIGHT(code,10) DESC),0) + 1) AS VARCHAR(10)),10))," +
                         "@date, 0, 0, 0, 0, getdate(), getdate(), @username)";
 
                 using (SqlConnection con = new SqlConnection(connString))
                 {
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
-                        cmd.Parameters.Add("@code", SqlDbType.VarChar).Value = "INV/" + dtpDate.Value.ToString("yyMMdd");
-                        cmd.Parameters.Add("@today", SqlDbType.VarChar).Value = dtpDate.Value.ToString("yyMMdd");
+                        cmd.Parameters.Add("@code", SqlDbType.VarChar).Value = "PO/";
                         cmd.Parameters.Add("@date", SqlDbType.Date).Value = dtpDate.Value;
                         cmd.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
 
